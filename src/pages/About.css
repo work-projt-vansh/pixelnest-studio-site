@@ -3,7 +3,8 @@
 }
 
 .about-story {
-  background: var(--white);
+  background: var(--bg-light);
+  transition: background 0.3s ease;
 }
 
 .story-content {
@@ -36,11 +37,12 @@
 }
 
 .gradient-about {
-  background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+  background: var(--gradient);
 }
 
 .about-values {
-  background: var(--off-white);
+  background: var(--bg-light-secondary);
+  transition: background 0.3s ease;
 }
 
 .section-title {
@@ -57,11 +59,16 @@
 }
 
 .value-card {
-  background: var(--white);
+  background: var(--bg-light);
   padding: var(--spacing-xl);
   border-radius: 16px;
   border: 1px solid #E2E8F0;
   transition: all 0.3s ease;
+}
+
+html.dark-mode .value-card {
+  background: var(--bg-light-secondary);
+  border-color: #334155;
 }
 
 .value-card:hover {
@@ -87,7 +94,8 @@
 }
 
 .about-team {
-  background: var(--white);
+  background: var(--bg-light);
+  transition: background 0.3s ease;
 }
 
 .team-grid {
@@ -97,12 +105,17 @@
 }
 
 .team-card {
-  background: var(--white);
+  background: var(--bg-light);
   padding: var(--spacing-xl);
   border-radius: 16px;
   border: 1px solid #E2E8F0;
   text-align: center;
   transition: all 0.3s ease;
+}
+
+html.dark-mode .team-card {
+  background: var(--bg-light-secondary);
+  border-color: #334155;
 }
 
 .team-card:hover {
@@ -148,7 +161,8 @@
 }
 
 .about-cta {
-  background: var(--off-white);
+  background: var(--bg-light-secondary);
+  transition: background 0.3s ease;
 }
 
 @media (max-width: 968px) {

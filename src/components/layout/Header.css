@@ -16,6 +16,11 @@
   padding: var(--spacing-md) 0;
 }
 
+html.dark-mode .header.scrolled {
+  background-color: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -104,6 +109,27 @@
   color: var(--text-primary);
 }
 
+.dark-mode-toggle {
+  background: none;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  padding: var(--spacing-sm);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(79, 70, 229, 0.1);
+  transform: rotate(20deg);
+}
+
+html.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(124, 58, 237, 0.2);
+}
+
 .mobile-cta {
   display: none;
 }
@@ -115,22 +141,30 @@
 @media (max-width: 768px) {
   .nav {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
     background-color: var(--white);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: var(--spacing-lg);
-    transition: right 0.3s ease;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
+    transition: top 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     z-index: 999;
+    overflow-y: auto;
+  }
+
+  html.dark-mode .nav {
+    background-color: var(--bg-light);
   }
 
   .nav.mobile-open {
-    right: 0;
+    top: 0;
   }
 
   .mobile-menu-toggle {
@@ -138,15 +172,21 @@
     z-index: 1001;
   }
 
+  .nav-link {
+    font-size: 1.125rem;
+    padding: var(--spacing-sm) 0;
+  }
+
   .mobile-cta {
     display: inline-flex;
   }
 
   .desktop-cta {
-    display: none;
-  }
-
-  .nav-link {
-    font-size: 1.25rem;
+    display: inline-flex;
+    width: 100%;
+    max-width: 280px;
+    margin-top: var(--spacing-md);
+    padding: 12px 24px;
+    font-size: 1rem;
   }
 }

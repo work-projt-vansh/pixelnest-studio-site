@@ -1,5 +1,6 @@
 .portfolio-preview {
-  background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+  background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-light-secondary) 100%);
+  transition: background 0.3s ease;
 }
 
 .portfolio-grid {
@@ -10,11 +11,18 @@
 }
 
 .portfolio-card {
-  background: var(--white);
+  background: var(--bg-light);
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
+  border: 1px solid #E2E8F0;
+}
+
+html.dark-mode .portfolio-card {
+  background: var(--bg-light-secondary);
+  border-color: #334155;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-card:hover {
@@ -51,6 +59,10 @@
   transition: opacity 0.3s ease;
 }
 
+html.dark-mode .portfolio-overlay {
+  background: rgba(0, 0, 0, 0.9);
+}
+
 .portfolio-card:hover .portfolio-overlay {
   opacity: 1;
 }
@@ -60,7 +72,7 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: 12px 24px;
-  background: var(--white);
+  background: var(--bg-light);
   color: var(--primary-blue);
   border-radius: 8px;
   font-weight: 600;
@@ -101,11 +113,17 @@
 
 .tag {
   padding: 6px 12px;
-  background: var(--off-white);
+  background: var(--bg-light-secondary);
   color: var(--text-secondary);
   border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+html.dark-mode .tag {
+  background: var(--bg-light);
+  color: var(--text-primary);
 }
 
 .portfolio-cta {
