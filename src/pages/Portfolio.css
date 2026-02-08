@@ -2,16 +2,40 @@
   padding-top: 80px;
 }
 
+.page-hero {
+  background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%);
+  padding: var(--spacing-4xl) 0;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+html.dark-mode .page-hero {
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
 .case-studies {
-  background: var(--white);
+  background: var(--bg-light);
+  transition: background 0.3s ease;
 }
 
 .case-study {
-  background: var(--white);
+  background: var(--bg-light);
   border: 1px solid #E2E8F0;
   border-radius: 24px;
   overflow: hidden;
   margin-bottom: var(--spacing-3xl);
+  transition: all 0.3s ease;
+}
+
+html.dark-mode .case-study {
+  background: var(--bg-light-secondary);
+  border-color: #334155;
 }
 
 .case-study-image {
@@ -47,6 +71,11 @@
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+html.dark-mode .tag-white {
+  background: rgba(30, 41, 59, 0.95);
 }
 
 .case-study-content {
@@ -114,10 +143,20 @@
   border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+html.dark-mode .tool-tag {
+  background: var(--bg-light-secondary);
 }
 
 .portfolio-cta {
   background: var(--off-white);
+  transition: background 0.3s ease;
+}
+
+html.dark-mode .portfolio-cta {
+  background: var(--bg-light-secondary);
 }
 
 @media (max-width: 768px) {

@@ -6,6 +6,11 @@
   overflow: hidden;
   padding-top: 80px;
   background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%);
+  transition: background 0.3s ease;
+}
+
+html.dark-mode .hero {
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
 }
 
 .hero-background {
@@ -110,6 +115,12 @@
   padding: var(--spacing-xl);
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);
+  transition: all 0.3s ease;
+}
+
+html.dark-mode .hero-visual-card {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(124, 58, 237, 0.2));
+  box-shadow: 0 20px 60px rgba(79, 70, 229, 0.3);
 }
 
 .visual-content {

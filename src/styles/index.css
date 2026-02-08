@@ -43,6 +43,22 @@
   --spacing-4xl: 96px;
 }
 
+/* Dark Mode Variables */
+html.dark-mode {
+  /* Background Colors for Dark Mode */
+  --bg-light: #0F172A;
+  --bg-light-secondary: #1E293B;
+  
+  /* Text Colors for Dark Mode */
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-light: #94A3B8;
+}
+
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

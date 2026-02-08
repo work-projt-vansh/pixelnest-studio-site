@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
+import { useDarkMode } from '../../context/DarkModeContext';
 import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const location = useLocation();
 
   useEffect(() => {
@@ -62,14 +64,20 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/contact" className="btn btn-primary mobile-cta">
-              Start Your Project
-            </Link>
-          </nav>
-
           <Link to="/contact" className="btn btn-primary desktop-cta">
             Start Your Project
-          </Link>
+          </Link> 
+
+          </nav>
+
+          <button 
+            className="dark-mode-toggle"
+            onClick={toggleDarkMode}
+            aria-label="Toggle dark mode"
+            title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {isDarkMode ? <FaSun /> : <FaMoon />}
+          </button>
 
           <button 
             className="mobile-menu-toggle"

@@ -1,5 +1,10 @@
 .services-section {
-  background-color: var(--white);
+  background-color: var(--bg-light);
+  transition: background-color 0.3s ease;
+}
+
+html.dark-mode .services-section {
+  background-color: var(--bg-light-secondary);
 }
 
 .section-header {
@@ -26,12 +31,17 @@
 }
 
 .service-card {
-  background: var(--white);
+  background: var(--bg-light);
   padding: var(--spacing-xl);
   border-radius: 16px;
   border: 1px solid #E2E8F0;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+html.dark-mode .service-card {
+  background: var(--bg-light-secondary);
+  border-color: #334155;
 }
 
 .service-card:hover {
