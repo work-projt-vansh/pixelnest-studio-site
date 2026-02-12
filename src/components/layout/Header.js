@@ -44,11 +44,11 @@ const Header = () => {
                   <stop offset="100%" style={{stopColor: '#7C3AED', stopOpacity: 1}} />
                 </linearGradient>
               </defs>
-              <path d="M100 20L170 60V140L100 180L30 140V60L100 20Z" 
-                    stroke="url(#logoGradient)" 
-                    strokeWidth="4" 
+              <path d="M100 20L170 60V140L100 180L30 140V60L100 20Z"
+                    stroke="url(#logoGradient)"
+                    strokeWidth="4"
                     fill="none"/>
-              <path d="M85 80H105C115 80 122 87 122 97C122 107 115 114 105 114H95V130H85V80Z" 
+              <path d="M85 80H105C115 80 122 87 122 97C122 107 115 114 105 114H95V130H85V80Z"
                     fill="url(#logoGradient)"/>
             </svg>
             <span className="logo-text">PixelNest</span>
@@ -64,28 +64,32 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-          <Link to="/contact" className="btn btn-primary desktop-cta">
-            Start Your Project
-          </Link> 
-
+            <Link to="/contact" className="btn btn-primary mobile-cta">
+              Start Your Project
+            </Link>
           </nav>
 
-          <button 
-            className="dark-mode-toggle"
-            onClick={toggleDarkMode}
-            aria-label="Toggle dark mode"
-            title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDarkMode ? <FaSun /> : <FaMoon />}
-          </button>
+          <div className="header-actions">
+            <Link to="/contact" className="btn btn-primary desktop-cta">
+              Start Your Project
+            </Link>
+            <button
+              className="dark-mode-toggle"
+              onClick={toggleDarkMode}
+              aria-label="Toggle dark mode"
+              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDarkMode ? <FaSun /> : <FaMoon />}
+            </button>
 
-          <button 
-            className="mobile-menu-toggle"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
+            <button
+              className="mobile-menu-toggle"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
         </div>
       </div>
     </header>
