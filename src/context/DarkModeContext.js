@@ -1,10 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 export const DarkModeContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check localStorage or system preference
     const saved = localStorage.getItem('darkMode');
     if (saved !== null) {
       return JSON.parse(saved);
@@ -23,18 +22,26 @@ export const DarkModeProvider = ({ children }) => {
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode(prevMode => !prevMode);
+  };
+
+  const enableDarkMode = () => {
+    setIsDarkMode(true);
+  };
+
+  const disableDarkMode = () => {
+    setIsDarkMode(false);
   };
 
   return (
-    <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
+    <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode, enableDarkMode, disableDarkMode }}>
       {children}
     </DarkModeContext.Provider>
   );
 };
 
 export const useDarkMode = () => {
-  const context = React.useContext(DarkModeContext);
+  const context = useContext(DarkModeContext);
   if (!context) {
     throw new Error('useDarkMode must be used within DarkModeProvider');
   }
