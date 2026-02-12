@@ -140,6 +140,8 @@ html.dark-mode .dark-mode-toggle:hover {
   margin-left: auto;
 }
 
+.mobile-theme-selector { display: none; }
+
 @media (max-width: 768px) {
   .nav {
     position: fixed;
@@ -191,5 +193,44 @@ html.dark-mode .dark-mode-toggle:hover {
     padding: 12px 24px;
     font-size: 1rem;
     margin-left: 0;
+  }
+
+  .dark-mode-toggle { display: none; }
+
+  .mobile-theme-selector {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .theme-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    background-color: var(--bg-light-secondary);
+    color: var(--text-secondary);
+  }
+
+  .theme-btn.active {
+    background: var(--gradient);
+    color: var(--white);
+  }
+
+  html.dark-mode .theme-btn {
+    background-color: var(--bg-dark-secondary);
+    color: var(--text-light);
+  }
+
+  html.dark-mode .theme-btn.active {
+    background: var(--gradient);
+    color: var(--white);
   }
 }
