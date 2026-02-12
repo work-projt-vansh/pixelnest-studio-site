@@ -79,7 +79,7 @@ const Footer = () => {
               </li>
               <li>
                 <FaEnvelope />
-                <a href="mailto:studio.pixelnest@gmail.com">studio.pixelnest@gmail.com</a>
+                <a href="mailto:studios.pixelnest@gmail.com">studios.pixelnest@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -88,8 +88,8 @@ const Footer = () => {
         <div className="footer-bottom">
           <p>&copy; {currentYear} PixelNest Studio. All rights reserved.</p>
           <div className="footer-bottom-links">
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Service</Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms-of-service">Terms of Service</Link>
           </div>
         </div>
       </div>
