@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPhone, FaWhatsapp, FaEnvelope, FaCheckCircle, FaSpinner, FaExclamationCircle } from 'react-icons/fa';
+import { FaPhone, FaWhatsapp, FaEnvelope, FaCheckCircle } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import './Contact.css';
 
@@ -9,22 +8,16 @@ const Contact = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState(null);
 
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOcWPZTXXRwBVdmP5qmEI_-NsfvxriObRYIqv1Wx1feJCHn3vZTJkbE0qrZM5Sj97N/exec";
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    setIsSubmitted(false);
-    setSubmitError(null);
 
     try {
-      // Using 'no-cors' is the most reliable way to post to a Google Apps Script web app
-      // from a browser, as it avoids issues with CORS and redirects. We can't read the
-      // response, but your script sends a confirmation email, which is a great UX.
       await fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'no-cors', // Important for Google Apps Script
         headers: {
           'Content-Type': 'application/json',
         },
@@ -33,11 +26,12 @@ const Contact = () => {
 
       setIsSubmitted(true);
       reset();
-      setTimeout(() => setIsSubmitted(false), 8000);
+      setTimeout(() => setIsSubmitted(false), 5000);
 
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitError('Failed to send message. Please check your network and try again.');
+      console.error('Form submission error:', error);
+      // You can add a more user-facing error message here if you like
+      alert("There was an error submitting your form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -76,7 +70,7 @@ const Contact = () => {
             >
               <h2>Get In Touch</h2>
               <p className="contact-intro">
-                Whether you're launching a new product, redesigning your brand, or need ongoing design support,
+                Whether you're launching a new product, redesigning your brand, or need ongoing design support, 
                 we're here to help.
               </p>
 
@@ -134,139 +128,125 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <form onSubmit={handleSubmit(onSubmit)} className="contact-form" noValidate>
-                {isSubmitted && (
-                  <div className="success-message form-message">
-                    <FaCheckCircle />
-                    <h3>Thank you for your inquiry!</h3>
-                    <p>We've sent a confirmation to your email. We'll be in touch within 24 hours.</p>
-                  </div>
-                )}
-                
-                {submitError && (
-                  <div className="error-message form-message form-error">
-                    <FaExclamationCircle />
-                    <h3>Submission Failed</h3>
-                    <p>{submitError}</p>
-                  </div>
-                )}
+              {isSubmitted && (
+                <div className="success-message">
+                  <FaCheckCircle />
+                  <h3>Thank you for your inquiry!</h3>
+                  <p>We'll get back to you within 24 hours.</p>
+                </div>
+              )}
 
-                <fieldset disabled={isSubmitting} style={{ border: 'none', padding: 0, margin: 0 }}>
+              <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+                <div className="form-group">
+                  <label htmlFor="name">Full Name *</label>
+                  <input
+                    id="name"
+                    type="text"
+                    {...register('name', { required: 'Name is required' })}
+                    className={errors.name ? 'error' : ''}
+                  />
+                  {errors.name && <span className="error-message">{errors.name.message}</span>}
+                </div>
+
+                <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="name">Full Name *</label>
+                    <label htmlFor="email">Email Address *</label>
                     <input
-                      id="name"
-                      type="text"
-                      {...register('name', { required: 'Name is required' })}
-                      className={errors.name ? 'error' : ''}
+                      id="email"
+                      type="email"
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: 'Invalid email address'
+                        }
+                      })}
+                      className={errors.email ? 'error' : ''}
                     />
-                    {errors.name && <span className="error-text">{errors.name.message}</span>}
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="email">Email Address *</label>
-                      <input
-                        id="email"
-                        type="email"
-                        {...register('email', {
-                          required: 'Email is required',
-                          pattern: {
-                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: 'Invalid email address'
-                          }
-                        })}
-                        className={errors.email ? 'error' : ''}
-                      />
-                      {errors.email && <span className="error-text">{errors.email.message}</span>}
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone / WhatsApp *</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        {...register('phone', { required: 'Phone number is required' })}
-                        className={errors.phone ? 'error' : ''}
-                      />
-                      {errors.phone && <span className="error-text">{errors.phone.message}</span>}
-                    </div>
+                    {errors.email && <span className="error-message">{errors.email.message}</span>}
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="projectType">Project Type *</label>
+                    <label htmlFor="phone">Phone / WhatsApp *</label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      {...register('phone', { required: 'Phone number is required' })}
+                      className={errors.phone ? 'error' : ''}
+                    />
+                    {errors.phone && <span className="error-message">{errors.phone.message}</span>}
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="projectType">Project Type *</label>
+                  <select
+                    id="projectType"
+                    {...register('projectType', { required: 'Please select a project type' })}
+                    className={errors.projectType ? 'error' : ''}
+                  >
+                    <option value="">Select...</option>
+                    <option value="uiux">UI/UX Design</option>
+                    <option value="development">Website Development</option>
+                    <option value="branding">Branding & Logo Design</option>
+                    <option value="complete">Complete Package (Design + Development)</option>
+                    <option value="redesign">Redesign / Update Existing Project</option>
+                    <option value="other">Other</option>
+                  </select>
+                  {errors.projectType && <span className="error-message">{errors.projectType.message}</span>}
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="budget">Budget Range *</label>
                     <select
-                      id="projectType"
-                      {...register('projectType', { required: 'Please select a project type' })}
-                      className={errors.projectType ? 'error' : ''}
+                      id="budget"
+                      {...register('budget', { required: 'Please select a budget range' })}
+                      className={errors.budget ? 'error' : ''}
                     >
                       <option value="">Select...</option>
-                      <option value="uiux">UI/UX Design</option>
-                      <option value="development">Website Development</option>
-                      <option value="branding">Branding & Logo Design</option>
-                      <option value="complete">Complete Package (Design + Development)</option>
-                      <option value="redesign">Redesign / Update Existing Project</option>
-                      <option value="other">Other</option>
+                      <option value="15-50k">₹15,000 - ₹50,000</option>
+                      <option value="50-100k">₹50,000 - ₹1,00,000</option>
+                      <option value="100-250k">₹1,00,000 - ₹2,50,000</option>
+                      <option value="250-500k">₹2,50,000 - ₹5,00,000</option>
+                      <option value="500k+">₹5,00,000+</option>
+                      <option value="not-sure">Not sure yet</option>
                     </select>
-                    {errors.projectType && <span className="error-text">{errors.projectType.message}</span>}
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="budget">Budget Range *</label>
-                      <select
-                        id="budget"
-                        {...register('budget', { required: 'Please select a budget range' })}
-                        className={errors.budget ? 'error' : ''}
-                      >
-                        <option value="">Select...</option>
-                        <option value="15-50k">₹15,000 - ₹50,000</option>
-                        <option value="50-100k">₹50,000 - ₹1,00,000</option>
-                        <option value="100-250k">₹1,00,000 - ₹2,50,000</option>
-                        <option value="250-500k">₹2,50,000 - ₹5,00,000</option>
-                        <option value="500k+">₹5,00,000+</option>
-                        <option value="not-sure">Not sure yet</option>
-                      </select>
-                      {errors.budget && <span className="error-text">{errors.budget.message}</span>}
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="timeline">Timeline *</label>
-                      <select
-                        id="timeline"
-                        {...register('timeline', { required: 'Please select a timeline' })}
-                        className={errors.timeline ? 'error' : ''}
-                      >
-                        <option value="">Select...</option>
-                        <option value="asap">ASAP (Rush project)</option>
-                        <option value="1-month">Within 1 month</option>
-                        <option value="1-2-months">1-2 months</option>
-                        <option value="2-3-months">2-3 months</option>
-                        <option value="flexible">Flexible / Exploring options</option>
-                      </select>
-                      {errors.timeline && <span className="error-text">{errors.timeline.message}</span>}
-                    </div>
+                    {errors.budget && <span className="error-message">{errors.budget.message}</span>}
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="message">Project Description *</label>
-                    <textarea
-                      id="message"
-                      rows="5"
-                      placeholder="Tell us about your project, goals, target audience, and any specific requirements..."
-                      {...register('message', { required: 'Please describe your project' })}
-                      className={errors.message ? 'error' : ''}
-                    ></textarea>
-                    {errors.message && <span className="error-text">{errors.message.message}</span>}
+                    <label htmlFor="timeline">Timeline *</label>
+                    <select
+                      id="timeline"
+                      {...register('timeline', { required: 'Please select a timeline' })}
+                      className={errors.timeline ? 'error' : ''}
+                    >
+                      <option value="">Select...</option>
+                      <option value="asap">ASAP (Rush project)</option>
+                      <option value="1-month">Within 1 month</option>
+                      <option value="1-2-months">1-2 months</option>
+                      <option value="2-3-months">2-3 months</option>
+                      <option value="flexible">Flexible / Exploring options</option>
+                    </select>
+                    {errors.timeline && <span className="error-message">{errors.timeline.message}</span>}
                   </div>
-                </fieldset>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="message">Project Description *</label>
+                  <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Tell us about your project, goals, target audience, and any specific requirements..."
+                    {...register('message', { required: 'Please describe your project' })}
+                    className={errors.message ? 'error' : ''}
+                  ></textarea>
+                  {errors.message && <span className="error-message">{errors.message.message}</span>}
+                </div>
 
                 <button type="submit" className="btn btn-primary btn-large btn-full" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    <><FaSpinner className="spinner" /> Sending...</>
-                  ) : (
-                    'Send Project Inquiry'
-                  )}
+                  {isSubmitting ? 'Sending...' : 'Send Project Inquiry'}
                 </button>
               </form>
             </motion.div>
