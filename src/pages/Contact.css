@@ -246,6 +246,22 @@ html.dark-mode .form-group textarea {
   }
 
   .contact-form-wrapper {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl); /* Modified padding for tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
