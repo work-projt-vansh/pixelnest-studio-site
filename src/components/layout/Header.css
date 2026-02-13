@@ -115,7 +115,8 @@ html.dark-mode .header.scrolled {
   font-size: 1.25rem;
   color: var(--text-primary);
   transition: all 0.3s ease;
-  padding: var(--spacing-sm);\n  border-radius: 50%;
+  padding: var(--spacing-sm);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,7 +221,8 @@ html.dark-mode .dark-mode-toggle:hover {
 
   .theme-btn.active {
     background: var(--gradient);
-    color: var(--white);\n  }
+    color: var(--white);
+  }
 
   html.dark-mode .theme-btn {
     background-color: var(--bg-dark-secondary);

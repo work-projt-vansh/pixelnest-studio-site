@@ -236,23 +236,29 @@ html.dark-mode .form-group textarea {
   width: 100%;
 }
 
+/* Responsive adjustments */
 @media (max-width: 968px) {
   .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack columns on tablets and smaller */
+    gap: var(--spacing-2xl);
   }
 
   .contact-form-wrapper {
-    padding: var(--spacing-xl); /* Modified padding for tablet */
+    padding: var(--spacing-xl); /* Adjusted padding for tablets */
+  }
+
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
+  .form-row {
+    grid-template-columns: 1fr; /* Stack form fields on mobile */
   }
 
   .contact-method {
@@ -261,7 +267,88 @@ html.dark-mode .form-group textarea {
     text-align: center;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
+  .contact-info h2 {
+    font-size: 1.75rem;
+  }
+
+  .contact-intro {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-wrapper {
+    padding: var(--spacing-lg); /* Smaller padding for small phones */
+  }
+
+  .contact-grid {
+    gap: var(--spacing-xl);
+  }
+
+  .contact-methods {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .contact-method {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .method-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .contact-method h3 {
+    font-size: 1rem;
+  }
+
+  .contact-method a,
+  .contact-method p {
+    font-size: 0.8125rem;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .success-message svg {
+    font-size: 2.5rem;
+  }
+
+  .success-message h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact-benefits h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact-benefits li {
+    font-size: 0.9rem;
   }
 }
