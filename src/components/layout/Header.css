@@ -115,8 +115,7 @@ html.dark-mode .header.scrolled {
   font-size: 1.25rem;
   color: var(--text-primary);
   transition: all 0.3s ease;
-  padding: var(--spacing-sm);
-  border-radius: 50%;
+  padding: var(--spacing-sm);\n  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,8 +220,7 @@ html.dark-mode .dark-mode-toggle:hover {
 
   .theme-btn.active {
     background: var(--gradient);
-    color: var(--white);
-  }
+    color: var(--white);\n  }
 
   html.dark-mode .theme-btn {
     background-color: var(--bg-dark-secondary);
@@ -232,5 +230,41 @@ html.dark-mode .dark-mode-toggle:hover {
   html.dark-mode .theme-btn.active {
     background: var(--gradient);
     color: var(--white);
+  }
+}
+
+@media (min-width: 769px) {
+  .nav {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: auto;
+    height: auto;
+    max-height: none;
+    background-color: transparent;
+    flex-direction: row;
+    justify-content: flex-start; /* Or space-between, depending on desired desktop layout */
+    align-items: center;
+    gap: var(--spacing-xl); /* Revert to desktop gap */
+    padding: 0; /* Revert to desktop padding */
+    transition: none; /* Disable transition for desktop */
+    box-shadow: none; /* Remove box-shadow */
+    z-index: auto; /* Revert z-index */
+    overflow-y: visible; /* Revert overflow */
+  }
+
+  .desktop-cta {
+    display: inline-flex; /* Ensure desktop CTA is always visible */
+  }
+
+  .mobile-cta,
+  .mobile-theme-selector {
+    display: none; /* Hide mobile-specific elements on desktop */
+  }
+
+  .nav-link {
+    font-size: 1rem; /* Revert font size if changed for mobile */
+    padding: 0; /* Revert padding if changed for mobile */
   }
 }
