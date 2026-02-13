@@ -54,52 +54,54 @@ const Header = () => {
             <span className="logo-text">PixelNest</span>
           </Link>
 
-          <nav className={`nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="mobile-theme-selector">
+          <div className="header-right-content">
+            <nav className={`nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="mobile-theme-selector">
+                <button 
+                  className={`theme-btn ${!isDarkMode ? 'active' : ''}`}
+                  onClick={disableDarkMode}
+                >
+                  <FaSun /> Light Mode
+                </button>
+                <button 
+                  className={`theme-btn ${isDarkMode ? 'active' : ''}`}
+                  onClick={enableDarkMode}
+                >
+                  <FaMoon /> Dark Mode
+                </button>
+              </div>
+              <Link to="/contact" className="btn btn-primary desktop-cta">
+                Start Your Project
+              </Link> 
+            </nav>
+
+            <div className="header-actions">
               <button 
-                className={`theme-btn ${!isDarkMode ? 'active' : ''}`}
-                onClick={disableDarkMode}
+                className="dark-mode-toggle"
+                onClick={isDarkMode ? disableDarkMode : enableDarkMode}
+                aria-label="Toggle dark mode"
+                title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
-                <FaSun /> Light Mode
+                {isDarkMode ? <FaSun /> : <FaMoon />}
               </button>
+
               <button 
-                className={`theme-btn ${isDarkMode ? 'active' : ''}`}
-                onClick={enableDarkMode}
+                className="mobile-menu-toggle"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
               >
-                <FaMoon /> Dark Mode
+                {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
               </button>
             </div>
-            <Link to="/contact" className="btn btn-primary desktop-cta">
-              Start Your Project
-            </Link> 
-          </nav>
-
-          <div className="header-actions">
-            <button 
-              className="dark-mode-toggle"
-              onClick={isDarkMode ? disableDarkMode : enableDarkMode}
-              aria-label="Toggle dark mode"
-              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDarkMode ? <FaSun /> : <FaMoon />}
-            </button>
-
-            <button 
-              className="mobile-menu-toggle"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-            </button>
           </div>
         </div>
       </div>

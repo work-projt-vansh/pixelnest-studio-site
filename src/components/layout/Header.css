@@ -48,11 +48,18 @@ html.dark-mode .header.scrolled {
   background-clip: text;
 }
 
+/* New container for right-aligned elements */
+.header-right-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl); /* Spacing between nav and header-actions */
+}
+
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xl);
-  flex-grow: 1;
+  gap: var(--spacing-xl); /* Spacing between nav links */
+  flex-grow: 0; /* Ensures nav does not take up extra space */
 }
 
 .nav-link {
@@ -137,10 +144,12 @@ html.dark-mode .dark-mode-toggle:hover {
 
 .desktop-cta {
   display: inline-flex;
-  margin-left: auto;
+  margin-left: 0; /* Remove margin-left: auto; as spacing is now handled by .header-right-content's gap */
 }
 
-.mobile-theme-selector { display: none; }
+.mobile-theme-selector {
+  display: none;
+}
 
 @media (max-width: 768px) {
   .nav {
@@ -171,17 +180,18 @@ html.dark-mode .dark-mode-toggle:hover {
     top: 0;
   }
 
+  /* Ensure mobile-menu-toggle is positioned correctly and visible */
   .mobile-menu-toggle {
     display: block;
-    position: fixed; /* Changed to fixed */
-    top: var(--spacing-lg); /* Explicit top position */
-    right: var(--spacing-lg); /* Explicit right position */
+    position: fixed; /* Keep it fixed so it's always on top of the menu */
+    top: var(--spacing-lg); /* Adjust as needed for padding from top */
+    right: var(--spacing-lg); /* Adjust as needed for padding from right */
     z-index: 1002; /* Very high z-index to be on top of everything */
   }
 
   .mobile-menu-toggle svg {
-    width: 24px; /* Explicitly set width */
-    height: 24px; /* Explicitly set height */
+    width: 24px; /* Explicitly set size */
+    height: 24px; /* Explicitly set size */
     display: block; /* Ensure it's a block-level element */
     fill: var(--text-primary); /* Ensure color is applied */
   }
@@ -196,16 +206,12 @@ html.dark-mode .dark-mode-toggle:hover {
   }
 
   .desktop-cta {
-    display: inline-flex;
-    width: 100%;
-    max-width: 280px;
-    margin-top: var(--spacing-md);
-    padding: 12px 24px;
-    font-size: 1rem;
-    margin-left: 0;
+    display: none; /* Hide desktop CTA in mobile view */
   }
 
-  .dark-mode-toggle { display: none; }
+  .dark-mode-toggle {
+    display: none;
+  }
 
   .mobile-theme-selector {
     display: flex;
@@ -246,6 +252,12 @@ html.dark-mode .dark-mode-toggle:hover {
 }
 
 @media (min-width: 769px) {
+  .header-right-content {
+    display: flex; /* Ensure it remains flex on desktop */
+    align-items: center;
+    gap: var(--spacing-xl); /* Maintain desktop spacing */
+  }
+
   .nav {
     position: relative;
     top: auto;
@@ -256,27 +268,29 @@ html.dark-mode .dark-mode-toggle:hover {
     max-height: none;
     background-color: transparent;
     flex-direction: row;
-    justify-content: flex-start; /* Or space-between, depending on desired desktop layout */
+    justify-content: flex-start;
     align-items: center;
-    gap: var(--spacing-xl); /* Revert to desktop gap */
-    padding: 0; /* Revert to desktop padding */
-    transition: none; /* Disable transition for desktop */
-    box-shadow: none; /* Remove box-shadow */
-    z-index: auto; /* Revert z-index */
-    overflow-y: visible; /* Revert overflow */
+    gap: var(--spacing-xl);
+    padding: 0;
+    transition: none;
+    box-shadow: none;
+    z-index: auto;
+    overflow-y: visible;
+    flex-grow: 0; /* Explicitly set flex-grow to 0 for desktop nav */
   }
 
   .desktop-cta {
-    display: inline-flex; /* Ensure desktop CTA is always visible */
+    display: inline-flex;
   }
 
   .mobile-cta,
-  .mobile-theme-selector {
-    display: none; /* Hide mobile-specific elements on desktop */
+  .mobile-theme-selector,
+  .mobile-menu-toggle { /* Hide mobile toggle on desktop */
+    display: none;
   }
 
   .nav-link {
-    font-size: 1rem; /* Revert font size if changed for mobile */
-    padding: 0; /* Revert padding if changed for mobile */
+    font-size: 1rem;
+    padding: 0;
   }
 }
