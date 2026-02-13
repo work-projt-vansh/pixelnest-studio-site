@@ -69,7 +69,7 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <FaPhone />
-                <a href="tel:+918791724170">+91 8791734170</a>
+                <a href="tel:+918791734170">+91 8791734170</a>
               </li>
               <li>
                 <FaWhatsapp />

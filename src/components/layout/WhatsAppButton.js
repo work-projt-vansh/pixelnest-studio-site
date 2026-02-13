@@ -5,7 +5,7 @@ import './WhatsAppButton.css';
 const WhatsAppButton = () => {
   const [isHovered, setIsHovered] = useState(false);
   
-  const whatsappNumber = '918791724170';
+  const whatsappNumber = '918791734170';
   const message = encodeURIComponent("Hi PixelNest! I'm interested in discussing a project.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 

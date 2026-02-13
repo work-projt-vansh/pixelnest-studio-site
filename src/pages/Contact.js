@@ -81,7 +81,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3>Phone & WhatsApp</h3>
-                    <a href="tel:+918791724170">+91 8791734170</a>
+                    <a href="tel:+918791734170">+91 8791734170</a>
                     <p>Mon-Sat, 10 AM - 7 PM IST</p>
                   </div>
                 </div>
