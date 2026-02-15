@@ -205,6 +205,7 @@ const Contact = () => {
                       className={errors.budget ? 'error' : ''}
                     >
                       <option value="">Select...</option>
+                      <option value="3.5-15k">₹3,500 - ₹15,000</option>
                       <option value="15-50k">₹15,000 - ₹50,000</option>
                       <option value="50-100k">₹50,000 - ₹1,00,000</option>
                       <option value="100-250k">₹1,00,000 - ₹2,50,000</option>

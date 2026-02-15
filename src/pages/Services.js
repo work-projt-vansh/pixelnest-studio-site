@@ -17,7 +17,7 @@ const Services = () => {
         "Design System Creation",
         "Responsive Design (Mobile, Tablet, Desktop)"
       ],
-      pricing: "₹25,000 - ₹3,50,000"
+      pricing: "₹5,000 - ₹3,50,000"
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ const Services = () => {
         "SEO Best Practices",
         "CMS Integration"
       ],
-      pricing: "₹15,000 - ₹5,00,000+"
+      pricing: "₹3,500 - ₹5,00,000+"
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const Services = () => {
         "Brand Style Guide",
         "Marketing Templates"
       ],
-      pricing: "₹15,000 - ₹2,50,000"
+      pricing: "₹5,000 - ₹2,50,000"
     }
   ];
 

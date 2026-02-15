@@ -59,7 +59,7 @@ const Hero = () => {
             >
               <div className="trust-item">
                 <FaCheckCircle />
-                <span>50+ Projects Delivered</span>
+                <span>8+ Projects Delivered</span>
               </div>
               <div className="trust-item">
                 <FaCheckCircle />

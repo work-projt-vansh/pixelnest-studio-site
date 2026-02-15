@@ -11,7 +11,7 @@ export const services = [
       "Design Systems",
       "Responsive Design"
     ],
-    pricing: "₹25,000 - ₹3,50,000"
+    pricing: "₹5,000 - ₹3,50,000"
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ export const services = [
       "CMS Integration",
       "E-commerce Solutions"
     ],
-    pricing: "₹15,000 - ₹5,00,000+"
+    pricing: "₹3,500 - ₹5,00,000+"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ export const services = [
       "Typography System",
       "Brand Guidelines"
     ],
-    pricing: "₹15,000 - ₹2,50,000"
+    pricing: "₹5,000 - ₹2,50,000"
   }
 ];
 
