@@ -6,22 +6,16 @@ import './About.css';
 const About = () => {
   const team = [
     {
-      name: "Arjun Malhotra",
+      name: "Vanshaj Rawat",
       role: "Founder & Creative Director",
       expertise: "Brand Strategy, UI/UX Design, Design Systems",
       description: "8+ years in product design and branding. Former design lead at a leading SaaS company."
     },
     {
-      name: "Priya Deshmukh",
+      name: "Vaibhav",
       role: "Lead Developer",
       expertise: "React, Next.js, Node.js, Database Design",
       description: "Full-stack developer with 40+ websites and web applications built. Passionate about clean code."
-    },
-    {
-      name: "Rahul Kapoor",
-      role: "Brand Strategist",
-      expertise: "Brand Positioning, Copywriting, Marketing Strategy",
-      description: "Strategic thinker who transforms business goals into compelling brand narratives."
     }
   ];
 
