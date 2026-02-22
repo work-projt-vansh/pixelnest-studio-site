@@ -4,42 +4,34 @@ import { FaCheckCircle } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
-  const team = [
+  const values = [
     {
-      name: "Vanshaj Rawat",
-      role: "Founder & Creative Director",
-      expertise: "Brand Strategy, UI/UX Design, Design Systems",
-      description: "8+ years in product design and branding. Former design lead at a leading SaaS company."
+      title: "Excellence",
+      description: "We deliver work that exceeds expectations by focusing on quality and precision."
     },
     {
-      name: "Vaibhav",
-      role: "Lead Developer",
-      expertise: "React, Next.js, Node.js, Database Design",
-      description: "Full-stack developer with 40+ websites and web applications built. Passionate about clean code."
+      title: "Transparency",
+      description: "We believe in clear communication, honest timelines, and collaborative partnerships."
+    },
+    {
+      title: "Simplicity",
+      description: "We create sophisticated solutions through clean, intuitive design that prioritizes user experience."
+    },
+    {
+      title: "Results",
+      description: "Every project is designed to help your business grow and achieve measurable results."
+    },
+    {
+      title: "Innovation",
+      description: "We stay ahead of design and technology trends to deliver modern, future-proof solutions."
     }
   ];
 
-  const values = [
-    {
-      title: "Excellence Without Compromise",
-      description: "We obsess over every pixel, every interaction, and every detail to deliver work that exceeds expectations."
-    },
-    {
-      title: "Transparent Collaboration",
-      description: "Clear communication, honest timelines, and collaborative partnerships define how we work with every client."
-    },
-    {
-      title: "Innovation Through Simplicity",
-      description: "We create sophisticated solutions through clean, intuitive design that puts user experience first."
-    },
-    {
-      title: "Growth-Focused Approach",
-      description: "Every project is designed with your business goals in mind, ensuring our work drives measurable results."
-    },
-    {
-      title: "Continuous Evolution",
-      description: "We stay ahead of design trends and technology to deliver modern, future-proof solutions."
-    }
+  const trustSignals = [
+    "Startup-friendly pricing",
+    "Fast delivery (3–7 days)",
+    "Direct communication",
+    "Focus on real results"
   ];
 
   return (
@@ -59,7 +51,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="hero-subtitle"
           >
-            We're on a mission to democratize exceptional design and development for Indian businesses.
+            We help startups and small businesses build modern websites that actually bring customers.
           </motion.p>
         </div>
       </section>
@@ -76,16 +68,13 @@ const About = () => {
             >
               <h2>Our Beginning</h2>
               <p>
-                PixelNest Studio was born from a simple frustration: too many talented founders and 
-                businesses were held back by mediocre design and development. In 2023, we recognized 
-                that while India had incredible entrepreneurial energy, many startups and small 
-                businesses struggled to compete digitally because quality design services were either 
-                unaffordable or inaccessible.
+                We started PixelNest Studio with one goal: to help businesses build a strong online
+                presence without spending huge money.
               </p>
               <p>
-                What started as freelance projects quickly evolved into something bigger. Today, 
-                PixelNest Studio is a specialized design and development agency focused exclusively 
-                on helping ambitious startups and businesses build digital products that drive real growth.
+                What began as a few freelance projects quickly grew into a specialized agency. Today,
+                we focus on helping ambitious startups and businesses create digital experiences that
+                drive real growth.
               </p>
             </motion.div>
 
@@ -133,7 +122,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="about-team section">
+      <section className="about-founder section">
         <div className="container">
           <motion.h2
             className="section-title"
@@ -142,24 +131,48 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Meet The Team
+            About the Founder
           </motion.h2>
 
-          <div className="team-grid">
-            {team.map((member, index) => (
+          <div className="founder-card">
+            <div className="founder-content">
+              <h3>Hi, I’m Vanshaj Rawat, founder of PixelNest Studio.</h3>
+              <p>
+                I started this studio with a passion for design and technology, aiming to help startups
+                and small businesses build modern digital experiences.
+              </p>
+              <p>
+                I focus on creating clean, fast, and effective websites that not only look good but
+                also help businesses grow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="about-trust section">
+        <div className="container">
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Why Startups Love Us
+          </motion.h2>
+          <div className="trust-grid">
+            {trustSignals.map((signal, index) => (
               <motion.div
                 key={index}
-                className="team-card"
+                className="trust-signal"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="team-avatar">{member.name.charAt(0)}</div>
-                <h3>{member.name}</h3>
-                <p className="team-role">{member.role}</p>
-                <p className="team-expertise"><strong>Expertise:</strong> {member.expertise}</p>
-                <p className="team-description">{member.description}</p>
+                <FaCheckCircle className="value-icon" />
+                <p>{signal}</p>
               </motion.div>
             ))}
           </div>
@@ -175,11 +188,15 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2>Let's Work Together</h2>
-            <p>Ready to transform your digital presence? Get in touch and let's create something extraordinary.</p>
-            <a href="/contact" className="btn btn-primary btn-large">
-              Start Your Project
-            </a>
+            <h2>Let’s build a website that brings you real customers.</h2>
+            <div>
+                <a href="/contact" className="btn btn-primary btn-large">
+                Get Free Consultation
+                </a>
+                <a href="https://wa.me/918954842181" className="btn btn-secondary btn-large">
+                WhatsApp Now
+                </a>
+            </div>
           </motion.div>
         </div>
       </section>

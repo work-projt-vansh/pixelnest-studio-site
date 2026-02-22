@@ -93,76 +93,78 @@ html.dark-mode .value-card {
   line-height: 1.7;
 }
 
-.about-team {
-  background: var(--bg-light);
+.about-founder {
+  background: var(--bg-light-secondary);
   transition: background 0.3s ease;
 }
 
-.team-grid {
+.founder-card {
+  background: var(--bg-light);
+  padding: var(--spacing-xl);
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+html.dark-mode .founder-card {
+  background: var(--bg-light-secondary);
+  border-color: #334155;
+}
+
+.founder-content h3 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.founder-content p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-trust {
+    background: var(--bg-light);
+    transition: background 0.3s ease;
+}
+
+.trust-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-xl);
 }
 
-.team-card {
-  background: var(--bg-light);
-  padding: var(--spacing-xl);
-  border-radius: 16px;
-  border: 1px solid #E2E8F0;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-html.dark-mode .team-card {
-  background: var(--bg-light-secondary);
-  border-color: #334155;
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 48px rgba(15, 23, 42, 0.12);
-}
-
-.team-avatar {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto var(--spacing-lg);
-  background: var(--gradient);
-  border-radius: 50%;
+.trust-signal {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--white);
+  gap: var(--spacing-md);
+  background: var(--bg-light-secondary);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
 }
 
-.team-card h3 {
-  font-size: 1.5rem;
+html.dark-mode .trust-signal {
+    background: var(--bg-light);
+}
+
+.trust-signal p {
+  font-size: 1.125rem;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
-}
-
-.team-role {
-  color: var(--primary-blue);
-  font-weight: 600;
-  margin-bottom: var(--spacing-md);
-}
-
-.team-expertise {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  margin-bottom: var(--spacing-sm);
-}
-
-.team-description {
-  color: var(--text-secondary);
-  line-height: 1.6;
+  font-weight: 500;
+  margin: 0;
 }
 
 .about-cta {
   background: var(--bg-light-secondary);
   transition: background 0.3s ease;
+}
+
+.cta-box div {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  margin-top: var(--spacing-xl);
 }
 
 @media (max-width: 968px) {
@@ -171,7 +173,13 @@ html.dark-mode .team-card {
   }
 
   .values-grid,
-  .team-grid {
+  .trust-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 500px) {
+    .cta-box div {
+        flex-direction: column;
+    }
 }
