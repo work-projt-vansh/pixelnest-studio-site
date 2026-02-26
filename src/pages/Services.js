@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaPaintBrush, FaCode, FaStar, FaCheck } from 'react-icons/fa';
+import FinalCTA from '../components/home/FinalCTA';
 import './Services.css';
 
 const Services = () => {
@@ -116,23 +117,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="services-cta section">
-        <div className="container">
-          <motion.div
-            className="cta-box"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2>Ready to Start Your Project?</h2>
-            <p>Let's discuss your needs and create a custom solution that fits your budget and timeline.</p>
-            <a href="/contact" className="btn btn-primary btn-large">
-              Get Free Consultation
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <FinalCTA />
     </div>
   );
 };

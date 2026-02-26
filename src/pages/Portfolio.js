@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
 import { portfolio } from '../data/portfolio';
+import FinalCTA from '../components/home/FinalCTA';
 import './Portfolio.css';
 
 const Portfolio = () => {
@@ -88,23 +89,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className="portfolio-cta section">
-        <div className="container">
-          <motion.div
-            className="cta-box"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2>Ready to Create Your Success Story?</h2>
-            <p>Let's build something amazing together. Get in touch to discuss your project.</p>
-            <a href="/contact" className="btn btn-primary btn-large">
-              Start Your Project
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <FinalCTA />
     </div>
   );
 };

@@ -1,0 +1,79 @@
+.final-cta {
+  background-color: var(--bg-light-secondary);
+  text-align: center;
+  padding: var(--spacing-4xl) 0;
+  transition: background 0.3s ease;
+}
+
+.final-cta h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.final-cta p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-2xl);
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary {
+  background: var(--gradient);
+  color: var(--white);
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-buttons .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
+
+.cta-buttons .btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-buttons .btn-secondary:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+html.dark-mode .final-cta {
+  background-color: var(--bg-dark-secondary);
+}
+
+@media (max-width: 640px) {
+  .cta-buttons {
+    flex-direction: column;
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+  }
+}

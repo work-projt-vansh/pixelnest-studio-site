@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
+import FinalCTA from '../components/home/FinalCTA';
 import './About.css';
 
 const About = () => {
@@ -179,27 +180,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="about-cta section">
-        <div className="container">
-          <motion.div
-            className="cta-box"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2>Let’s build a website that brings you real customers.</h2>
-            <div>
-                <a href="/contact" className="btn btn-primary btn-large">
-                Get Free Consultation
-                </a>
-                <a href="https://wa.me/918954842181" className="btn btn-secondary btn-large">
-                WhatsApp Now
-                </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <FinalCTA />
     </div>
   );
 };
