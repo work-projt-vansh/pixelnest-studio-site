@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import './FAQ.css';
 
@@ -37,7 +37,7 @@ const FAQ = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
           FREQUENTLY ASKED QUESTIONS
         </motion.h2>
@@ -49,7 +49,7 @@ const FAQ = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
             >
               <button 
                 className="faq-question" 
@@ -61,19 +61,9 @@ const FAQ = () => {
                   {activeIndex === index ? <FaMinus /> : <FaPlus />}
                 </span>
               </button>
-              <AnimatePresence>
-                {activeIndex === index && (
-                  <motion.div 
-                    className="faq-answer open"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <p>{item.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className={`faq-answer ${activeIndex === index ? 'open' : ''}`}>
+                <p>{item.answer}</p>
+              </div>
             </motion.div>
           ))}
         </div>
