@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import './FAQ.css';
 
@@ -17,6 +18,10 @@ const FAQ = () => {
     {
       question: 'Will it work on mobile?',
       answer: '👉 Yes, fully responsive'
+    },
+    {
+      question: 'Do you provide support after launch?',
+      answer: '👉 Yes, we offer maintenance and support.'
     }
   ];
 
@@ -27,23 +32,49 @@ const FAQ = () => {
   return (
     <section className="section faq">
       <div className="container">
-        <h2 className="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          FREQUENTLY ASKED QUESTIONS
+        </motion.h2>
         <div className="faq-list">
           {faqData.map((item, index) => (
-            <div 
+            <motion.div 
               key={index} 
               className={`faq-item ${activeIndex === index ? 'active' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="faq-question" onClick={() => toggleFAQ(index)}>
+              <button 
+                className="faq-question" 
+                onClick={() => toggleFAQ(index)}
+                aria-expanded={activeIndex === index}
+              >
                 <h3>{item.question}</h3>
                 <span className="faq-icon">
                   {activeIndex === index ? <FaMinus /> : <FaPlus />}
                 </span>
-              </div>
-              <div className="faq-answer">
-                <p>{item.answer}</p>
-              </div>
-            </div>
+              </button>
+              <AnimatePresence>
+                {activeIndex === index && (
+                  <motion.div 
+                    className="faq-answer open"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <p>{item.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
       </div>
