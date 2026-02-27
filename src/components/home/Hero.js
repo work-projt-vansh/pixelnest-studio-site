@@ -97,7 +97,7 @@ const Hero = () => {
           >
             <div className="hero-visual-card">
               <div className="visual-content">
-                <img src="/images/hero-visual.png" alt="PixelNest Digital Experiences" className="hero-img" />
+                <img src="/images/hero-visual.png" alt="PixelNest Digital Experiences" className="hero-img" loading="lazy" />
               </div>
               <div className="floating-element element-1"></div>
               <div className="floating-element element-2"></div>
