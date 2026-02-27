@@ -86,7 +86,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="story-image gradient-about"></div>
+              <img src="/images/about_visual.png" alt="Our Beginning" className="story-image" loading="lazy" />
             </motion.div>
           </div>
         </div>
