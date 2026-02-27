@@ -151,7 +151,7 @@ html.dark-mode .dark-mode-toggle:hover {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav {
     position: fixed;
     top: -100vh;
@@ -251,7 +251,7 @@ html.dark-mode .dark-mode-toggle:hover {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .header-right-content {
     display: flex; /* Ensure it remains flex on desktop */
     align-items: center;

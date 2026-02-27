@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Hero.css';
 
 const Hero = () => {
+  const [isPageVisible, setIsPageVisible] = useState(true);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsPageVisible(!document.hidden);
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
   return (
     <section className="hero">
       <div className="hero-background"></div>
@@ -75,24 +89,15 @@ const Hero = () => {
           <motion.div 
             className="hero-visual"
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{
+              opacity: isPageVisible ? 1 : 0,
+              scale: isPageVisible ? 1 : 0.9,
+            }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="hero-visual-card">
               <div className="visual-content">
-                <div className="visual-placeholder">
-                  <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none">
-                    <defs>
-                      <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style={{stopColor: '#4F46E5', stopOpacity: 0.8}} />
-                        <stop offset="100%" style={{stopColor: '#7C3AED', stopOpacity: 0.8}} />
-                      </linearGradient>
-                    </defs>
-                    <circle cx="200" cy="200" r="150" fill="url(#heroGradient)" opacity="0.3"/>
-                    <circle cx="200" cy="200" r="100" fill="url(#heroGradient)" opacity="0.5"/>
-                    <circle cx="200" cy="200" r="50" fill="url(#heroGradient)"/>
-                  </svg>
-                </div>
+                <img src="/images/hero-visual.png" alt="PixelNest Digital Experiences" className="hero-img" />
               </div>
               <div className="floating-element element-1"></div>
               <div className="floating-element element-2"></div>
