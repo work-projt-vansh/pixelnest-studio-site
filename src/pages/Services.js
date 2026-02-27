@@ -18,7 +18,7 @@ const Services = () => {
         "Design System Creation",
         "Responsive Design (Mobile, Tablet, Desktop)"
       ],
-      pricing: "₹5,000 - ₹3,50,000"
+      pricing: "Starts at ₹5,000"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const Services = () => {
         "SEO Best Practices",
         "CMS Integration"
       ],
-      pricing: "₹3,500 - ₹5,00,000+"
+      pricing: "Starts at ₹3,500"
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ const Services = () => {
         "Brand Style Guide",
         "Marketing Templates"
       ],
-      pricing: "₹5,000 - ₹2,50,000"
+      pricing: "Starts at ₹5,000"
     }
   ];
 
@@ -105,7 +105,7 @@ const Services = () => {
                 </div>
 
                 <div className="service-pricing">
-                  <h3>Investment Range:</h3>
+                  <h3>Starting Price:</h3>
                   <div className="pricing-box">
                     <span className="price">{service.pricing}</span>
                     <p>Custom pricing based on project scope</p>

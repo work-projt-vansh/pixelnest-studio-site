@@ -87,7 +87,6 @@ html {
   flex: 1; /* Make .App fill remaining height */
   min-height: 100vh; /* Ensure .App is at least viewport height */
   padding-top: 80px; /* Account for fixed header */
-  padding-bottom: 100px; /* Account for fixed footer */
   display: flex;
   flex-direction: column;
 }
