@@ -207,6 +207,10 @@
     align-items: center;
   }
 
+  .hero-cta .btn {
+    width: 100%;
+  }
+
   .hero-visual {
       width: 320px;
       height: 320px;
